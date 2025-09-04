@@ -28,22 +28,36 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'packages/index.ts'),
       name: 'KlenComponents',
-      fileName: 'klen-components',
+      fileName: (format) => `index.${format}.js`,
+      formats: ['es', 'cjs', 'umd']
     },
     rollupOptions: {
       external: ['vue'],
-      output: {
-        globals: {
-          vue: 'Vue',
+      output: [
+        {
+          format: 'es',
+          entryFileNames: 'index.esm.js',
+          assetFileNames: 'style.css',
+          exports: 'named'
         },
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name?.endsWith('.css')) {
-            return 'styles/[name].[hash].css'
+        {
+          format: 'cjs',
+          entryFileNames: 'index.cjs.js',
+          assetFileNames: 'style.css',
+          exports: 'named'
+        },
+        {
+          format: 'umd',
+          name: 'KlenComponents',
+          entryFileNames: 'index.umd.js',
+          assetFileNames: 'style.css',
+          globals: {
+            vue: 'Vue'
           }
-          return 'assets/[name].[hash].[ext]'
         }
-      },
+      ]
     },
-    cssCodeSplit: true,
+    cssCodeSplit: false,
+    sourcemap: true
   },
 }) 

@@ -1,8 +1,77 @@
-# Klen Components 项目总结
+# Klen Components
+
+[![npm version](https://badge.fury.io/js/klen-components.svg)](https://badge.fury.io/js/klen-components)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 🎯 项目概述
 
-这是一个完整的企业级 Vue 3 UI 组件库项目，使用 pnpm 作为包管理器，采用现代化的技术栈和最佳实践。
+Klen Components 是一个企业级 Vue 3 UI 组件库，提供高质量的组件和完整的设计系统。使用 TypeScript 开发，支持主题切换、响应式设计，并遵循现代前端开发最佳实践。
+
+## 📦 安装
+
+```bash
+# 使用 npm
+npm install klen-components
+
+# 使用 yarn
+yarn add klen-components
+
+# 使用 pnpm
+pnpm add klen-components
+```
+
+## 🚀 快速开始
+
+### 1. 导入组件库
+
+```typescript
+// main.ts
+import { createApp } from 'vue'
+import KlenComponents from 'klen-components'
+import 'klen-components/dist/style.css'
+import App from './App.vue'
+
+const app = createApp(App)
+app.use(KlenComponents)
+app.mount('#app')
+```
+
+### 2. 使用组件
+
+```vue
+<template>
+  <div>
+    <MyButton type="primary" @click="handleClick">
+      点击我
+    </MyButton>
+    
+    <MyInput 
+      v-model="inputValue" 
+      placeholder="请输入内容"
+      :error="hasError"
+    />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const inputValue = ref('')
+const hasError = ref(false)
+
+const handleClick = () => {
+  console.log('按钮被点击了')
+}
+</script>
+```
+
+### 3. 按需导入
+
+```typescript
+// 只导入需要的组件
+import { MyButton, MyInput } from 'klen-components'
+import 'klen-components/dist/style.css'
+```
 
 ## 🏗️ 项目结构
 

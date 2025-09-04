@@ -5,14 +5,31 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klen-h/klen-components.git"
+  },
+  "homepage": "https://github.com/klen-h/klen-components#readme",
+  "bugs": {
+    "url": "https://github.com/klen-h/klen-components/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "pnpm run build:lib && pnpm run build:types",
     "build:lib": "vite build",
-    "build:types": "vue-tsc --declaration --emitDeclarationOnly",
+    "build:types": "tsc --project tsconfig.build.json",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
     "storybook": "storybook dev -p 6006",

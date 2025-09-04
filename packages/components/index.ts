@@ -2,10 +2,6 @@
 export { default as MyButton } from './button/MyButton.vue'
 export { default as MyInput } from './input/MyInput.vue'
 
-// 类型导出
-export type { ButtonProps } from './button/MyButton.vue'
-export type { InputProps } from './input/MyInput.vue'
-
 // 组件列表
 export const components = [
   'MyButton',

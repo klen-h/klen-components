@@ -1,6 +1,9 @@
 // 组件导出
 export * from './components'
 
+// 类型导出
+export * from './types'
+
 // 工具导出
 export * from './utils/theme'
 

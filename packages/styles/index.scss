@@ -1,8 +1,7 @@
 // 导入所有样式文件
-/* stylelint-disable-next-line import-notation */
-@import './variables.scss';
-@import './mixins.scss';
-@import './functions.scss';
+@use './variables.scss' as *;
+@use './mixins.scss' as *;
+@use './functions.scss' as *;
 
 // 全局重置样式
 * {
