@@ -1,0 +1,320 @@
+// 响应式混入
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (min-width: var(--breakpoint-xs)) { @content; }
+  } @else if $breakpoint == sm {
+    @media (min-width: var(--breakpoint-sm)) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: var(--breakpoint-md)) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: var(--breakpoint-lg)) { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: var(--breakpoint-xl)) { @content; }
+  } @else if $breakpoint == xxl {
+    @media (min-width: var(--breakpoint-xxl)) { @content; }
+  }
+}
+
+// 按钮基础样式混入
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-base);
+  text-decoration: none;
+  user-select: none;
+  white-space: nowrap;
+  outline: none;
+  
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(var(--primary-color), 0.2);
+  }
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+// 按钮尺寸混入
+@mixin button-size-small {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  height: 24px;
+  min-width: 64px;
+}
+
+@mixin button-size-medium {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  height: 32px;
+  min-width: 80px;
+}
+
+@mixin button-size-large {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  height: 40px;
+  min-width: 96px;
+}
+
+// 按钮类型混入
+@mixin button-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--white);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: var(--primary-active);
+    border-color: var(--primary-active);
+  }
+}
+
+@mixin button-secondary {
+  background-color: transparent;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: var(--primary-active);
+    border-color: var(--primary-active);
+    color: var(--white);
+  }
+}
+
+@mixin button-success {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  color: var(--white);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--success-hover);
+    border-color: var(--success-hover);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: var(--success-active);
+    border-color: var(--success-active);
+  }
+}
+
+@mixin button-warning {
+  background-color: var(--warning-color);
+  border-color: var(--warning-color);
+  color: var(--white);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--warning-hover);
+    border-color: var(--warning-hover);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: var(--warning-active);
+    border-color: var(--warning-active);
+  }
+}
+
+@mixin button-danger {
+  background-color: var(--error-color);
+  border-color: var(--error-color);
+  color: var(--white);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--error-hover);
+    border-color: var(--error-hover);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: var(--error-active);
+    border-color: var(--error-active);
+  }
+}
+
+@mixin button-ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--text-color);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: var(--border-color-light);
+    color: var(--primary-active);
+  }
+}
+
+// 输入框基础样式混入
+@mixin input-base {
+  display: inline-block;
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-base);
+  outline: none;
+  
+  &::placeholder {
+    color: var(--text-color-disabled);
+  }
+  
+  &:hover {
+    border-color: var(--primary-hover);
+  }
+  
+  &:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color), 0.2);
+  }
+  
+  &:disabled {
+    background-color: var(--background-color);
+    color: var(--text-color-disabled);
+    cursor: not-allowed;
+  }
+}
+
+// 输入框尺寸混入
+@mixin input-size-small {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  height: 24px;
+}
+
+@mixin input-size-medium {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  height: 32px;
+}
+
+@mixin input-size-large {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  height: 40px;
+}
+
+// 卡片基础样式混入
+@mixin card-base {
+  background-color: var(--white);
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+// 文本截断混入
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-truncate-multi($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 清除浮动混入
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// 隐藏滚动条混入
+@mixin hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// 渐变背景混入
+@mixin gradient-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+}
+
+@mixin gradient-success {
+  background: linear-gradient(135deg, var(--success-color) 0%, var(--success-hover) 100%);
+}
+
+@mixin gradient-warning {
+  background: linear-gradient(135deg, var(--warning-color) 0%, var(--warning-hover) 100%);
+}
+
+@mixin gradient-error {
+  background: linear-gradient(135deg, var(--error-color) 0%, var(--error-hover) 100%);
+}
+
+// 动画混入
+@mixin fade-in($duration: var(--transition-base)) {
+  animation: fadeIn $duration ease-in-out;
+}
+
+@mixin slide-up($duration: var(--transition-base)) {
+  animation: slideUp $duration ease-out;
+}
+
+@mixin slide-down($duration: var(--transition-base)) {
+  animation: slideDown $duration ease-out;
+}
+
+@mixin scale-in($duration: var(--transition-base)) {
+  animation: scaleIn $duration ease-out;
+}
+
+// 动画关键帧
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+} 

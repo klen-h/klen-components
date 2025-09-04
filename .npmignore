@@ -1,0 +1,75 @@
+# Source files (only include built files)
+src/
+packages/
+examples/
+tests/
+scripts/
+docs/
+
+# Development files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build tools
+vite.config.ts
+vitest.config.ts
+tsconfig.json
+
+# Development dependencies
+node_modules/
+.pnpm-store/
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+PROJECT_SUMMARY.md
+*.md
+
+# Test files
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+coverage/
+
+# Environment files
+.env*
+config.local.*
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+.cache/
+
+# IDE files
+.vscode/
+.idea/
+
+# Package manager files
+.pnpm-debug.log*
+yarn.lock
+package-lock.json
+
+# Build cache
+.rollup.cache/
+.vite/
+.turbo/
+
+# Only include these files in the package:
+# - dist/ (built files)
+# - package.json
+# - LICENSE (if exists)
+# - README.md (if you want to include it)

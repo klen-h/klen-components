@@ -1,0 +1,172 @@
+// 颜色系统
+:root {
+  --primary-color: #1890ff;
+  --primary-hover: #40a9ff;
+  --primary-active: #096dd9;
+  --primary-light: #e6f7ff;
+  
+  --success-color: #52c41a;
+  --success-hover: #73d13d;
+  --success-active: #389e0d;
+  --success-light: #f6ffed;
+  
+  --warning-color: #faad14;
+  --warning-hover: #ffc53d;
+  --warning-active: #d48806;
+  --warning-light: #fffbe6;
+  
+  --error-color: #f5222d;
+  --error-hover: #ff4d4f;
+  --error-active: #cf1322;
+  --error-light: #fff2f0;
+  
+  --info-color: #1890ff;
+  --info-hover: #40a9ff;
+  --info-active: #096dd9;
+  --info-light: #e6f7ff;
+  
+  // 中性色
+  --white: #ffffff;
+  --black: #000000;
+  --text-color: #262626;
+  --text-color-secondary: #8c8c8c;
+  --text-color-disabled: #bfbfbf;
+  --border-color: #d9d9d9;
+  --border-color-light: #f0f0f0;
+  --background-color: #fafafa;
+  --background-color-light: #ffffff;
+  
+  // 字体系统
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  --font-family-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 24px;
+  --font-size-xxxl: 30px;
+  
+  --line-height-xs: 1.2;
+  --line-height-sm: 1.4;
+  --line-height-base: 1.5715;
+  --line-height-lg: 1.6;
+  --line-height-xl: 1.8;
+  
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  // 间距系统
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-xxxl: 64px;
+  
+  // 圆角系统
+  --border-radius-xs: 2px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 8px;
+  --border-radius-xl: 12px;
+  --border-radius-xxl: 16px;
+  --border-radius-circle: 50%;
+  
+  // 阴影系统
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  // 动画系统
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
+  --transition-slower: 0.5s ease;
+  
+  // 断点系统
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1600px;
+  
+  // Z-index系统
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+  --z-index-toast: 1080;
+}
+
+// 暗色主题
+[data-theme="dark"] {
+  --primary-color: #177ddc;
+  --primary-hover: #1f93ff;
+  --primary-active: #0958b5;
+  --primary-light: #111b26;
+  
+  --success-color: #49aa19;
+  --success-hover: #6abe39;
+  --success-active: #3c8618;
+  --success-light: #162312;
+  
+  --warning-color: #d89614;
+  --warning-hover: #e8b339;
+  --warning-active: #a87000;
+  --warning-light: #2b2111;
+  
+  --error-color: #d32029;
+  --error-hover: #e84749;
+  --error-active: #a61d24;
+  --error-light: #2a1215;
+  
+  --text-color: #ffffff;
+  --text-color-secondary: #a6a6a6;
+  --text-color-disabled: #595959;
+  --border-color: #434343;
+  --border-color-light: #303030;
+  --background-color: #141414;
+  --background-color-light: #1f1f1f;
+}
+
+// 高对比度主题
+[data-theme="high-contrast"] {
+  --primary-color: #000000;
+  --primary-hover: #333333;
+  --primary-active: #666666;
+  --primary-light: #f0f0f0;
+  
+  --success-color: #00ff00;
+  --success-hover: #33ff33;
+  --success-active: #00cc00;
+  --success-light: #f0fff0;
+  
+  --warning-color: #ffff00;
+  --warning-hover: #ffff33;
+  --warning-active: #cccc00;
+  --warning-light: #fffff0;
+  
+  --error-color: #ff0000;
+  --error-hover: #ff3333;
+  --error-active: #cc0000;
+  --error-light: #fff0f0;
+  
+  --text-color: #000000;
+  --text-color-secondary: #333333;
+  --text-color-disabled: #999999;
+  --border-color: #000000;
+  --border-color-light: #333333;
+  --background-color: #ffffff;
+  --background-color-light: #f0f0f0;
+} 

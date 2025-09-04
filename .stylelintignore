@@ -1,0 +1,46 @@
+# Build outputs
+dist/
+build/
+
+# Dependencies
+node_modules/
+
+# Generated files
+coverage/
+
+# Cache directories
+.cache/
+.vite/
+.rollup.cache/
+
+# Logs
+*.log
+logs/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+
+# Package manager files
+.pnpm-debug.log*
+
+# Storybook
+storybook-static/
+
+# Third-party styles
+node_modules/**/*.css
+node_modules/**/*.scss
+node_modules/**/*.sass
+node_modules/**/*.less
+
+# Generated CSS files (if any)
+*.min.css
+*.bundle.css

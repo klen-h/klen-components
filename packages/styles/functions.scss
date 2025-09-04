@@ -1,0 +1,314 @@
+// 颜色处理函数
+@function lighten-color($color, $amount) {
+  @return lighten($color, $amount);
+}
+
+@function darken-color($color, $amount) {
+  @return darken($color, $amount);
+}
+
+@function mix-colors($color1, $color2, $weight: 50%) {
+  @return mix($color1, $color2, $weight);
+}
+
+@function rgba-color($color, $alpha) {
+  @return rgba($color, $alpha);
+}
+
+// 数学计算函数
+@function rem($pixels) {
+  @return ($pixels / 16) * 1rem;
+}
+
+@function em($pixels, $context: 16) {
+  @return ($pixels / $context) * 1em;
+}
+
+@function percentage($value, $total) {
+  @return ($value / $total) * 100%;
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+// 间距计算函数
+@function spacing($multiplier: 1) {
+  @return var(--spacing-sm) * $multiplier;
+}
+
+@function spacing-xs($multiplier: 1) {
+  @return var(--spacing-xs) * $multiplier;
+}
+
+@function spacing-sm($multiplier: 1) {
+  @return var(--spacing-sm) * $multiplier;
+}
+
+@function spacing-md($multiplier: 1) {
+  @return var(--spacing-md) * $multiplier;
+}
+
+@function spacing-lg($multiplier: 1) {
+  @return var(--spacing-lg) * $multiplier;
+}
+
+@function spacing-xl($multiplier: 1) {
+  @return var(--spacing-xl) * $multiplier;
+}
+
+// 字体大小函数
+@function font-size($size: 'base') {
+  @if $size == 'xs' {
+    @return var(--font-size-xs);
+  } @else if $size == 'sm' {
+    @return var(--font-size-sm);
+  } @else if $size == 'base' {
+    @return var(--font-size-base);
+  } @else if $size == 'lg' {
+    @return var(--font-size-lg);
+  } @else if $size == 'xl' {
+    @return var(--font-size-xl);
+  } @else if $size == 'xxl' {
+    @return var(--font-size-xxl);
+  } @else if $size == 'xxxl' {
+    @return var(--font-size-xxxl);
+  } @else {
+    @return var(--font-size-base);
+  }
+}
+
+// 圆角函数
+@function border-radius($size: 'md') {
+  @if $size == 'xs' {
+    @return var(--border-radius-xs);
+  } @else if $size == 'sm' {
+    @return var(--border-radius-sm);
+  } @else if $size == 'md' {
+    @return var(--border-radius-md);
+  } @else if $size == 'lg' {
+    @return var(--border-radius-lg);
+  } @else if $size == 'xl' {
+    @return var(--border-radius-xl);
+  } @else if $size == 'xxl' {
+    @return var(--border-radius-xxl);
+  } @else if $size == 'circle' {
+    @return var(--border-radius-circle);
+  } @else {
+    @return var(--border-radius-md);
+  }
+}
+
+// 阴影函数
+@function shadow($size: 'md') {
+  @if $size == 'xs' {
+    @return var(--shadow-xs);
+  } @else if $size == 'sm' {
+    @return var(--shadow-sm);
+  } @else if $size == 'md' {
+    @return var(--shadow-md);
+  } @else if $size == 'lg' {
+    @return var(--shadow-lg);
+  } @else if $size == 'xl' {
+    @return var(--shadow-xl);
+  } @else {
+    @return var(--shadow-md);
+  }
+}
+
+// 过渡函数
+@function transition($speed: 'base') {
+  @if $speed == 'fast' {
+    @return var(--transition-fast);
+  } @else if $speed == 'base' {
+    @return var(--transition-base);
+  } @else if $speed == 'slow' {
+    @return var(--transition-slow);
+  } @else if $speed == 'slower' {
+    @return var(--transition-slower);
+  } @else {
+    @return var(--transition-base);
+  }
+}
+
+// Z-index函数
+@function z-index($level: 'modal') {
+  @if $level == 'dropdown' {
+    @return var(--z-index-dropdown);
+  } @else if $level == 'sticky' {
+    @return var(--z-index-sticky);
+  } @else if $level == 'fixed' {
+    @return var(--z-index-fixed);
+  } @else if $level == 'modal-backdrop' {
+    @return var(--z-index-modal-backdrop);
+  } @else if $level == 'modal' {
+    @return var(--z-index-modal);
+  } @else if $level == 'popover' {
+    @return var(--z-index-popover);
+  } @else if $level == 'tooltip' {
+    @return var(--z-index-tooltip);
+  } @else if $level == 'toast' {
+    @return var(--z-index-toast);
+  } @else {
+    @return var(--z-index-modal);
+  }
+}
+
+// 断点函数
+@function breakpoint($size: 'md') {
+  @if $size == 'xs' {
+    @return var(--breakpoint-xs);
+  } @else if $size == 'sm' {
+    @return var(--breakpoint-sm);
+  } @else if $size == 'md' {
+    @return var(--breakpoint-md);
+  } @else if $size == 'lg' {
+    @return var(--breakpoint-lg);
+  } @else if $size == 'xl' {
+    @return var(--breakpoint-xl);
+  } @else if $size == 'xxl' {
+    @return var(--breakpoint-xxl);
+  } @else {
+    @return var(--breakpoint-md);
+  }
+}
+
+// 颜色主题函数
+@function theme-color($type: 'primary', $variant: 'base') {
+  @if $type == 'primary' {
+    @if $variant == 'base' {
+      @return var(--primary-color);
+    } @else if $variant == 'hover' {
+      @return var(--primary-hover);
+    } @else if $variant == 'active' {
+      @return var(--primary-active);
+    } @else if $variant == 'light' {
+      @return var(--primary-light);
+    }
+  } @else if $type == 'success' {
+    @if $variant == 'base' {
+      @return var(--success-color);
+    } @else if $variant == 'hover' {
+      @return var(--success-hover);
+    } @else if $variant == 'active' {
+      @return var(--success-active);
+    } @else if $variant == 'light' {
+      @return var(--success-light);
+    }
+  } @else if $type == 'warning' {
+    @if $variant == 'base' {
+      @return var(--warning-color);
+    } @else if $variant == 'hover' {
+      @return var(--warning-hover);
+    } @else if $variant == 'active' {
+      @return var(--warning-active);
+    } @else if $variant == 'light' {
+      @return var(--warning-light);
+    }
+  } @else if $type == 'error' {
+    @if $variant == 'base' {
+      @return var(--error-color);
+    } @else if $variant == 'hover' {
+      @return var(--error-hover);
+    } @else if $variant == 'active' {
+      @return var(--error-active);
+    } @else if $variant == 'light' {
+      @return var(--error-light);
+    }
+  } @else if $type == 'info' {
+    @if $variant == 'base' {
+      @return var(--info-color);
+    } @else if $variant == 'hover' {
+      @return var(--info-hover);
+    } @else if $variant == 'active' {
+      @return var(--info-active);
+    } @else if $variant == 'light' {
+      @return var(--info-light);
+    }
+  }
+  
+  @return var(--primary-color);
+}
+
+// 文本颜色函数
+@function text-color($variant: 'base') {
+  @if $variant == 'base' {
+    @return var(--text-color);
+  } @else if $variant == 'secondary' {
+    @return var(--text-color-secondary);
+  } @else if $variant == 'disabled' {
+    @return var(--text-color-disabled);
+  } @else {
+    @return var(--text-color);
+  }
+}
+
+// 背景颜色函数
+@function bg-color($variant: 'base') {
+  @if $variant == 'base' {
+    @return var(--background-color);
+  } @else if $variant == 'light' {
+    @return var(--background-color-light);
+  } @else {
+    @return var(--background-color);
+  }
+}
+
+// 边框颜色函数
+@function border-color($variant: 'base') {
+  @if $variant == 'base' {
+    @return var(--border-color);
+  } @else if $variant == 'light' {
+    @return var(--border-color-light);
+  } @else {
+    @return var(--border-color);
+  }
+}
+
+// 工具函数
+@function is-number($value) {
+  @return type-of($value) == 'number';
+}
+
+@function is-string($value) {
+  @return type-of($value) == 'string';
+}
+
+@function is-color($value) {
+  @return type-of($value) == 'color';
+}
+
+@function is-list($value) {
+  @return type-of($value) == 'list';
+}
+
+@function is-map($value) {
+  @return type-of($value) == 'map';
+}
+
+@function is-null($value) {
+  @return $value == null;
+}
+
+// 条件函数
+@function if-else($condition, $if-true, $if-false) {
+  @if $condition {
+    @return $if-true;
+  } @else {
+    @return $if-false;
+  }
+}
+
+// 范围函数
+@function range($start, $end, $step: 1) {
+  $list: ();
+  @for $i from $start through $end {
+    @if $i % $step == 0 {
+      $list: append($list, $i);
+    }
+  }
+  @return $list;
+} 

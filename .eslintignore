@@ -1,0 +1,51 @@
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Dependencies
+node_modules/
+
+# Generated files
+coverage/
+.nyc_output/
+
+# Cache directories
+.cache/
+.vite/
+.rollup.cache/
+.turbo/
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env*
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+
+# Package manager files
+.pnpm-debug.log*
+yarn.lock
+package-lock.json
+
+# Storybook
+storybook-static/
+
+# Test results
+test-results/
+playwright-report/
+
+# Documentation (optional, remove if you want to lint docs)
+# *.md
